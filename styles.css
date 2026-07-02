@@ -160,6 +160,7 @@ img { max-width: 100%; height: auto; display: block; }
 .about h2,
 .markets h2,
 .offerings h2,
+.latest h2,
 .gallery h2,
 .posters h2,
 .videos h2,
@@ -233,6 +234,56 @@ img { max-width: 100%; height: auto; display: block; }
 }
 .offer strong { display: block; font-size: 1rem; margin: 8px 0 4px; font-weight: 700; color: var(--forest); }
 .offer span { display: block; font-size: .9rem; line-height: 1.4; color: var(--ink); opacity: .8; }
+
+/* ─── latest posts ────────────────────────────────────── */
+.latest { padding: 90px 0; background: var(--paper); border-bottom: 3px solid var(--ink); }
+.latest-grid {
+  display: grid; gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  margin-top: 28px;
+}
+.post-card {
+  display: flex; flex-direction: column; overflow: hidden;
+  background: var(--cream);
+  border: 3px solid var(--ink);
+  border-radius: var(--radius);
+  color: var(--ink);
+  transition: transform .2s, box-shadow .2s;
+}
+.post-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow);
+  color: var(--ink);
+}
+.post-media {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  background: var(--cream-2);
+  border-bottom: 3px solid var(--ink);
+  overflow: hidden;
+}
+.post-media img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform .35s;
+}
+.post-card:hover .post-media img { transform: scale(1.04); }
+.post-play {
+  position: absolute; inset: 0;
+  display: grid; place-items: center;
+  font-size: 2.6rem; color: var(--cream);
+  text-shadow: 0 0 18px rgba(0,0,0,.75);
+  pointer-events: none;
+  transition: transform .25s;
+}
+.post-card:hover .post-play { transform: scale(1.15); }
+.post-body { display: flex; flex-direction: column; gap: 8px; padding: 16px 18px 18px; flex: 1; }
+.post-meta { margin: 0; font-size: .85rem; color: var(--rust-d); }
+.post-meta strong { font-weight: 700; }
+.post-text { margin: 0; font-size: .95rem; line-height: 1.5; flex: 1; }
+.post-link { font-size: .88rem; font-weight: 700; color: var(--rust-d); }
+.post-card:hover .post-link { color: var(--rust); }
+.latest .note { margin-top: 26px; font-size: .95rem; font-weight: 500; }
 
 /* ─── gallery ─────────────────────────────────────────── */
 .gallery { padding: 90px 0; background: var(--paper); }

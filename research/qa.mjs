@@ -18,7 +18,7 @@ async function shotAt(viewport, name) {
   await page.screenshot({ path: `${OUT}/${name}_full.png`, fullPage: true });
 
   // sections
-  for (const sel of ['#about', '#markets', '#offerings', '#gallery', '#videos', '#connect']) {
+  for (const sel of ['#about', '#markets', '#offerings', '#latest', '#gallery', '#videos', '#connect']) {
     try {
       const el = await page.$(sel);
       if (el) {

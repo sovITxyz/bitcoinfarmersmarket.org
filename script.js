@@ -3,11 +3,12 @@ const I18N = {
   en: {
     'nav.markets': 'Markets',
     'nav.offerings': "What's there",
+    'nav.latest': 'Latest',
     'nav.gallery': 'Gallery',
     'nav.videos': 'Videos',
     'nav.connect': 'Connect',
     'hero.kicker': '⚡️ Have fun staying permissionless ⚡️',
-    'hero.title': 'A Bi weekly bitcoin market on the Salvadoran coast.',
+    'hero.title': 'A biweekly bitcoin market on the Salvadoran coast.',
     'hero.preferred': 'Bitcoin preferido',
     'hero.cta1': 'Find a market',
     'hero.cta2': "What's there?",
@@ -41,10 +42,14 @@ const I18N = {
     'o.crafts.t':'Artisans & jewelry',     'o.crafts.b':'Artesanías, joyería, hand-made gifts.',
     'o.books.t': 'Books & merch',          'o.books.b': 'Bitcoin books, BFM merch, Berlín gear.',
     'o.hw.t':    'Bitcoin hardware',       'o.hw.b':    'Wallets, signers, hardware on the table.',
+    'latest.title': 'Latest from the market',
+    'latest.lead': "Fresh updates from the community on X — what's happening at Club Cocal right now.",
+    'latest.view': 'View post on X →',
+    'latest.follow': 'Follow @btcfarmersmrkt on X for the next market date →',
     'gallery.title': 'From the market',
-    'gallery.lead': 'Real vendors. Real stalls. Real Sundays. (Tap any photo to enlarge.)',
+    'gallery.lead': 'Real vendors. Real stalls. Real market days. (Tap any photo to enlarge.)',
     'posters.title': 'Past flyers',
-    'posters.lead': 'A few of our past Sunday market posters.',
+    'posters.lead': 'A few of our past market day posters.',
     'videos.title': 'Watch the market',
     'videos.lead': 'Stories from El Zonte, El Salvador.',
     'vendor.title': 'Want to be a vendor?',
@@ -59,6 +64,7 @@ const I18N = {
   es: {
     'nav.markets': 'Mercados',
     'nav.offerings': 'Qué hay',
+    'nav.latest': 'Lo último',
     'nav.gallery': 'Galería',
     'nav.videos': 'Videos',
     'nav.connect': 'Conectar',
@@ -97,10 +103,14 @@ const I18N = {
     'o.crafts.t':'Artesanías y joyería',    'o.crafts.b':'Hechos a mano por artistas locales.',
     'o.books.t': 'Libros y mercancía',      'o.books.b': 'Libros de bitcoin, BFM merch, mercancía Berlín.',
     'o.hw.t':    'Hardware Bitcoin',        'o.hw.b':    'Wallets, signers, hardware en la mesa.',
+    'latest.title': 'Lo último del mercado',
+    'latest.lead': 'Novedades frescas de la comunidad en X — lo que está pasando en Club Cocal ahora mismo.',
+    'latest.view': 'Ver post en X →',
+    'latest.follow': 'Sigue a @btcfarmersmrkt en X para la próxima fecha del mercado →',
     'gallery.title': 'Desde el mercado',
-    'gallery.lead': 'Vendedores reales. Puestos reales. Domingos reales. (Toca cualquier foto para ampliar.)',
+    'gallery.lead': 'Vendedores reales. Puestos reales. Días de mercado reales. (Toca cualquier foto para ampliar.)',
     'posters.title': 'Afiches anteriores',
-    'posters.lead': 'Algunos de nuestros afiches de domingos pasados.',
+    'posters.lead': 'Algunos de nuestros afiches de mercados pasados.',
     'videos.title': 'Mira el mercado',
     'videos.lead': 'Historias desde El Zonte, El Salvador.',
     'vendor.title': '¿Quieres ser proveedor?',
@@ -121,6 +131,14 @@ function applyLang(lang) {
   document.querySelectorAll('[data-i18n]').forEach(el => {
     const key = el.getAttribute('data-i18n');
     if (dict[key] != null) el.innerHTML = dict[key];
+  });
+  document.querySelectorAll('.latest time[datetime]').forEach(t => {
+    const d = new Date(t.getAttribute('datetime') + 'T12:00:00Z');
+    if (isNaN(d)) return;
+    try {
+      t.textContent = new Intl.DateTimeFormat(lang === 'es' ? 'es-SV' : 'en-US',
+        { year: 'numeric', month: 'short', day: 'numeric', timeZone: 'UTC' }).format(d);
+    } catch {}
   });
   const btn = document.getElementById('lang-toggle');
   if (btn) btn.textContent = lang === 'en' ? 'ES' : 'EN';
