@@ -59,6 +59,11 @@ const I18N = {
     'connect.title': 'Connect',
     'connect.lead': 'Follow along, find the next market, or reach out.',
     'connect.cocal':  'Club Cocal · Surf City',
+    'os.title': 'Open source, just like bitcoin',
+    'os.body': 'This site is open source — just like bitcoin. The code is public on GitHub for anyone to read, verify, fork, or improve. No permission needed.',
+    'os.cta': 'GitHub repo',
+    'os.note': 'Spotted a typo? Have an idea? Edit the site and submit a pull request — contributions welcome.',
+    'os.credit': 'Maintained by Cameron from <a href="https://www.sovit.xyz" target="_blank" rel="noopener">sovit.xyz</a>',
     'footer.tag': 'Have fun staying permissionless',
   },
   es: {
@@ -120,6 +125,11 @@ const I18N = {
     'connect.title': 'Conectar',
     'connect.lead': 'Síguenos, encuentra el próximo mercado, o contáctanos.',
     'connect.cocal':  'Club Cocal · Surf City',
+    'os.title': 'Código abierto, igual que bitcoin',
+    'os.body': 'Este sitio es de código abierto — igual que bitcoin. El código está público en GitHub para que cualquiera pueda leerlo, verificarlo, hacer un fork o mejorarlo. Sin pedir permiso.',
+    'os.cta': 'Repositorio en GitHub',
+    'os.note': '¿Viste un error? ¿Tienes una idea? Edita el sitio y envía un pull request — las contribuciones son bienvenidas.',
+    'os.credit': 'Mantenido por Cameron de <a href="https://www.sovit.xyz" target="_blank" rel="noopener">sovit.xyz</a>',
     'footer.tag': 'Diviértete quedándote permissionless',
   }
 };
